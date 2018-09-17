@@ -14,7 +14,7 @@ Install [Vue2Leaflet](https://github.com/KoRiGaN/Vue2Leaflet) :
 
 Create a Nuxt Plugin in `src/plugins` :
 
-```
+``` javascript
 // src/plugins/vue-leaflet.js
 import Vue from 'vue'
 
@@ -39,7 +39,7 @@ Of course, you can add any other component from Leaflet that you need using `Vue
 
 Add the plugin to `nuxt.config.js` and disable ssr :
 
-```
+``` javascript
 // nuxt.config.js
   plugins: [
     {src: '~/plugins/vue-leaflet', ssr: false },

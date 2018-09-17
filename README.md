@@ -6,8 +6,11 @@ Moveover, Leaflet cannot be used (cleanly) with Nuxt by default because of ssr. 
 
 ## Steps
 
+### Vue2Leaflet
 Install [Vue2Leaflet](https://github.com/KoRiGaN/Vue2Leaflet) :
 `$ npm install vue2-leaflet --save`
+
+### Nuxt plugin
 
 Create a Nuxt Plugin in `src/plugins` :
 
@@ -44,11 +47,14 @@ Add the plugin to `nuxt.config.js` and disable ssr :
 
 ```
 
-Finally, because we are using a Nuxt plugin, the CSS won't work properly. You can either add it in each page you are using Leaflet :
+### CSS
+
+Finally, because we are using a Nuxt plugin, the CSS won't work properly. You can either :
+
+* Add it in each page you are using Leaflet :
 `<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css">`
 
-Or load it globally using Nuxt :
-(Using CDN)
+* Load it globally using a CDN :
 
 ``` javascript
 // nuxt.config.js
@@ -59,7 +65,7 @@ Or load it globally using Nuxt :
   },
 ```
 
-(Locally) We will need to serve the image locally also.
+* Load it locally, you will also need to serve the image locally also :
 
 ``` javascript
 
@@ -68,6 +74,8 @@ Or load it globally using Nuxt :
     "~assets/css/leaflet/leaflet.css",
   ],
 ```
+
+### Use it !
 
 You can now access `L` in your vue template !
 _Example :_ (Don't forget to replace `your.mapbox.access.token`) !

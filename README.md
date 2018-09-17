@@ -100,6 +100,64 @@ _Example :_ (Don't forget to replace `your.mapbox.access.token`) !
 </script>
 ```
 
+### Add methods to plugin
+
+I did this in order to being able to use [PruneCluster](https://github.com/SINTEF-9012/PruneCluster) with Nuxt.  
+
+Add your import in the plugin and set a property for the methods you wan't to use :  
+_Example :_
+``` javascript
+import Vue from 'vue'
+
+import Vue2Leaflet from 'vue2-leaflet'
+
+import { PruneCluster, PruneClusterForLeaflet } from 'exports-loader?PruneCluster,PruneClusterForLeaflet!prunecluster/dist/PruneCluster.js'
+
+const VueLeaflet = {
+
+  install(Vue, options) {
+    Vue.component('l-map', Vue2Leaflet.LMap)
+    Vue.component('l-marker', Vue2Leaflet.LMarker)
+    Vue.component('l-tile-layer', Vue2Leaflet.LTileLayer)
+    Vue.prototype.PruneCluster = PruneCluster;
+    Vue.prototype.PruneClusterForLeaflet = PruneClusterForLeaflet;
+  }
+};
+
+
+Vue.use(VueLeaflet);
+
+export default VueLeaflet;
+```
+
+In your vue template, you can call your methods by prepending them with `this.`
+_Example :_
+``` vue
+<template>
+	<div id="map-wrap"></div>
+</template>
+<script>
+	export default {
+		name: 'leaflet-map',
+		mounted() {
+			var map = L.map("map-wrap", {
+				attributionControl: false,
+				zoomControl: false
+			}).setView(L.latLng(-37.79, 175.27), 12);
+			L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+				detectRetina: true,
+				maxNativeZoom: 17
+			}).addTo(map);
+
+			var pruneCluster = new this.PruneClusterForLeaflet();
+			var marker = new this.PruneCluster.Marker(59.8717, 11.1909);
+			pruneCluster.RegisterMarker(marker);
+			map.addLayer(pruneCluster);
+		},
+	}
+</script>
+```
+
 ## Donation
 
 This project helped you ? You can buy me a cup of coffee  

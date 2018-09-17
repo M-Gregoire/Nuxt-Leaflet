@@ -35,7 +35,7 @@ Vue.use(VueLeaflet);
 export default VueLeaflet;
 ```
 
-Of course, you can add any other component from Leaflet that you need using `Vue.component`, such as `L-Rectangle`.
+Of course, you can add any other component from Leaflet that you need using `Vue.component`, such as `L-Rectangle`.  
 
 Add the plugin to `nuxt.config.js` and disable ssr :
 
@@ -77,7 +77,7 @@ Finally, because we are using a Nuxt plugin, the CSS won't work properly. You ca
 
 ### Use it !
 
-You can now access `L` in your vue template !
+You can now access `L` in your vue template !  
 _Example :_ (Don't forget to replace `your.mapbox.access.token`) !
 
 ``` vue
@@ -102,5 +102,5 @@ _Example :_ (Don't forget to replace `your.mapbox.access.token`) !
 
 ## Donation
 
-This project helped you ? You can buy me a cup of coffee
+This project helped you ? You can buy me a cup of coffee  
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EWHGT3M9899J6)

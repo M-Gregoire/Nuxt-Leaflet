@@ -1,8 +1,9 @@
 # Nuxt-Leaflet
 
-A Nuxt module already exists for using Leaflet with Nuxt ([nuxt-leaflet](https://github.com/schlunsen/nuxt-leaflet)) but it doesn't expose `L` from Leaflet, which makes the use of plugins really difficult.
+A Nuxt module already exists for using Leaflet with Nuxt ([nuxt-leaflet](https://github.com/schlunsen/nuxt-leaflet)) ~~but it doesn't expose `L` from Leaflet, which makes the use of plugins really difficult~~, which now exports `$L` (See https://github.com/M-Gregoire/Nuxt-Leaflet/issues/2).
 
-Moveover, Leaflet cannot be used (cleanly) with Nuxt by default because of ssr. The best way I found was creating a Nuxt plugin (Thanks [Christian Nwamba](https://medium.com/@codebeast_/why-your-third-party-plugin-dont-work-in-nuxt-and-how-to-fix-it-d1a8caadf422) !)
+
+Moveover, Leaflet cannot be used (cleanly) with Nuxt by default because of ssr. The best way I found was creating a Nuxt plugin (Thanks [Christian Nwamba](https://medium.com/@codebeast_/why-your-third-party-plugin-dont-work-in-nuxt-and-how-to-fix-it-d1a8caadf422)!)
 
 ## Steps
 
@@ -73,6 +74,12 @@ Finally, because we are using a Nuxt plugin, the CSS won't work properly. You ca
   css: [
     "~assets/css/leaflet/leaflet.css",
   ],
+```
+
+* Load it in the Leaflet plugin (Thank you [xpuu](https://github.com/M-Gregoire/Nuxt-Leaflet/issues/1)):
+
+``` javascript
+import 'leaflet/dist/leaflet.css'
 ```
 
 ### Use it !

@@ -9,7 +9,7 @@ Moveover, Leaflet cannot be used (cleanly) with Nuxt by default because of ssr. 
 
 ### Vue2Leaflet
 Install [Vue2Leaflet](https://github.com/KoRiGaN/Vue2Leaflet) :
-`$ npm install vue2-leaflet --save`
+`$ npm install vue2-leaflet leaflet --save`
 
 ### Nuxt plugin
 
